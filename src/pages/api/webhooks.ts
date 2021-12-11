@@ -38,7 +38,7 @@ export default async(req: NextApiRequest, res: NextApiResponse) => {
     try {
       event = stripe.webhooks.constructEvent(buf, secret, process.env.STRIPE_WEBHOOK_SECRET);
     } catch (error) {
-      res.status(400).json({ message: "Webhook error: " + error.message});
+      return res.status(400).json({ message: "Webhook error: " + error.message});
     };
 
     const type = event.type;
@@ -46,6 +46,7 @@ export default async(req: NextApiRequest, res: NextApiResponse) => {
     if(relevantEvents.has(type)) {
       try {
         switch(type) {
+          case ("custumer.subscription.created"):
           case ("custumer.subscription.updated"):
           case ("custumer.subscription.deleted"):
             const subscription = event.data.object as Stripe.Subscription;
@@ -70,7 +71,7 @@ export default async(req: NextApiRequest, res: NextApiResponse) => {
             throw new Error("Unhandled event");
         };
       } catch (error) {
-        return res.json({ error: "Webhook handler failed"});
+        return res.status(400).json({ error: "Webhook handler failed"});
       };
     };
 
