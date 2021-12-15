@@ -1,0 +1,11 @@
+{
+  "technologies": [
+    "Next.js",
+    "React.js",
+    "HTML",
+    "CSS"
+  ],
+  "links": {
+    "self": "https://ignews-nu-flax.vercel.app/"
+  }
+}
