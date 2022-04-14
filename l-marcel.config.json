@@ -1,4 +1,5 @@
 {
+  "translatedDescription": "Aplicação criada na trilha do React.js usando o Next.js. Entre os projetos realizados no Ignite esse é o que mais trouxe novos conhecimentos, se trata de um blog que fornece a possibilidade de assinar um serviço pago. Também fez parte do terceiro desafio complementar, onde são implementadas novas funcionalidades.",
   "technologies": [
     "Next.js",
     "React.js",
